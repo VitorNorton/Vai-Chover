@@ -1,0 +1,366 @@
+<html>
+  <head>
+    <title>Vai Chover?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="./images/Vaichover.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+
+    />
+    <link rel="stylesheet" href="./mobile.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="left-column">
+        <nav class="navbar-container">
+          <img src="./images/Vaichover.svg" alt="Vai Chover?" />
+          <input
+          class="custom-input"
+          type="text"
+          name="city"
+          id="input-cidade"
+          placeholder="Procure por cidades"
+          />
+        </nav>
+
+        <div class="showcase-container">
+          <div class="showcase-text">
+            <h2 id="cidade">Cidade</h2>
+            <p id="descricao">Descrição</p>
+            <h2 id="temperatura">--</h2>
+          </div>
+
+          <img id="icone-clima" src="./images/sun-clouds.svg" alt="Ícone do clima atual" />
+        </div>
+
+        <div class="hourly-forecast-container">
+          <div class="hour-weather-item">
+            <p>6:00 AM</p>
+            <img src="./images/sun-cloud.svg" alt="Sol com poucas nuvens" />
+            <p>24º</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p>09:00 AM</p>
+            <img src="./images/sun-clouds.svg" alt="Sol com muitas nuvens" />
+            <p>28º</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p>12:00 PM</p>
+            <img src="./images/sun.svg" alt="Sol" />
+            <p>30º</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p>3:00 PM</p>
+            <img src="./images/sun.svg" alt="Sol" />
+            <p>30º</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p>6:00 PM</p>
+            <img src="./images/clouds.svg" alt="Nublado" />
+            <p>26º</p>
+          </div>
+
+          <div class="hour-weather-item">
+            <p>9:00 PM</p>
+            <img src="./images/moon-clouds.svg" alt="Noite com nuvens" />
+            <p>23º</p>
+          </div>
+        </div>
+
+        <div class="weather-details-container">
+          <div class="weather-detail-item">
+            <p>Sensação Térmica</p>
+            <div>
+              <img src="./images/temperature.svg" alt="Sensação Térmica" />
+              <p id="sensacao-termica">--</p>
+            </div>
+          </div>
+
+          <div class="weather-detail-item">
+            <p>Chance de chuva</p>
+            <div>
+              <img src="./images/rain.svg" alt="Chance de chuva" />
+              <p id="umidade">--</p>
+            </div>
+          </div>
+
+          <div class="weather-detail-item">
+            <p>Vento</p>
+            <div>
+              <img src="./images/wind.svg" alt="Vento" />
+              <p id="vento">--</p> km/h
+            </div>
+          </div>
+
+          <div class="weather-detail-item">
+            <p>Índice UV</p>
+            <div>
+              <img src="./images/sun-2.svg" alt="Índice UV" />
+             <p id="uv">--</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="weekly-forecast-container">
+          <div class="day-weather-item">
+            <p>Segunda</p>
+            <img src="./images/rain-2.svg" alt="Sol com nuvens" />
+            <div>
+              <p>29º</p>
+              <p>23º</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p>Terça</p>
+            <img src="./images/sun.svg" alt="Sol" />
+            <div>
+              <p>30º</p>
+              <p>25º</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p>Quarta</p>
+            <img src="./images/sun.svg" alt="Nublado" />
+            <div>
+              <p>25º</p>
+              <p>22º</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p>Quinta</p>
+            <img src="./images/sun-cloud.svg" alt="Sol com nuvens" />
+            <div>
+              <p>28º</p>
+              <p>23º</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p>Sexta</p>
+            <img src="./images/sun-cloud.svg" alt="Sol com nuvens" />
+            <div>
+              <p>28º</p>
+              <p>23º</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p>Sábado</p>
+            <img src="./images/sun.svg" alt="Sol" />
+            <div>
+              <p>30º</p>
+              <p>25º</p>
+            </div>
+          </div>
+
+          <div class="day-weather-item">
+            <p>Domingo</p>
+            <img src="./images/rain-2.svg" alt="Chuva" />
+            <div>
+              <p>24º</p>
+              <p>22º</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+const apiKey = '2e3a580a873302f58db241d18e85d87b';
+
+window.onload = function () {
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+    buscarClimaPorCoord(lat, lon);
+    buscarPrevisao(lat, lon);
+    buscarIndiceUV(lat, lon);
+  });
+};
+
+async function buscarClima() {
+  const cidade = document.getElementById('input-cidade').value;
+  if (!cidade) {
+    alert("Digite uma cidade.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&lang=pt_br&units=metric`
+    );
+    if (!resposta.ok) {
+      alert("Cidade não encontrada.");
+      return;
+    }
+    const dados = await resposta.json();
+    document.getElementById('cidade').innerText = dados.name;
+    document.getElementById('temperatura').innerText = `${Math.round(dados.main.temp)}°C`;
+    document.getElementById('descricao').innerText = dados.weather[0].description;
+    document.getElementById('umidade').innerText = `${dados.main.humidity}%`;
+    document.getElementById('vento').innerText = `${Math.round(dados.wind.speed * 3.6)}`;
+    document.getElementById('sensacao-termica').innerText = `${Math.round(dados.main.feels_like)}°C`;
+    const iconeAtual = iconesClima[dados.weather[0].icon] || "./images/clouds.svg";
+    document.getElementById('icone-clima').src = iconeAtual;
+    document.getElementById('icone-clima').alt = dados.weather[0].description;
+
+    const lat = dados.coord.lat;
+    const lon = dados.coord.lon;
+    buscarIndiceUV(lat, lon);
+    
+    // Buscar previsão semanal pela cidade
+    buscarPrevisaoCidade(cidade);
+  } catch (e) {
+    alert("Erro ao buscar clima. Verifique sua conexão.");
+  }
+}
+
+async function buscarClimaPorCoord(lat, lon) {
+  const resposta = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=pt_br&units=metric`
+  );
+  const dados = await resposta.json();
+  document.getElementById('cidade').innerText = dados.name;
+  document.getElementById('temperatura').innerText = `${Math.round(dados.main.temp)}°C`;
+  document.getElementById('descricao').innerText = dados.weather[0].description;
+  document.getElementById('umidade').innerText = `${dados.main.humidity}%`;
+  document.getElementById('vento').innerText = `${Math.round(dados.wind.speed * 3.6)}`;
+  document.getElementById('sensacao-termica').innerText = `${Math.round(dados.main.feels_like)}°C`;
+  const iconeAtual = iconesClima[dados.weather[0].icon] || "./images/clouds.svg";
+  document.getElementById('icone-clima').src = iconeAtual;
+  document.getElementById('icone-clima').alt = dados.weather[0].description;
+}
+
+async function buscarPrevisaoCidade(cidade) {
+  const resposta = await fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`
+  );
+  const dados = await resposta.json();
+  atualizarPrevisaoSemanal(dados);
+}
+
+async function buscarPrevisao(lat, lon) {
+  const resposta = await fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`
+  );
+  const dados = await resposta.json();
+  atualizarPrevisaoSemanal(dados);
+}
+
+const iconesClima = {
+  "01d": "./images/sun.svg",
+  "01n": "./images/moon-clouds.svg",
+  "02d": "./images/sun-cloud.svg",
+  "02n": "./images/moon-clouds.svg",
+  "03d": "./images/clouds.svg",
+  "03n": "./images/clouds.svg",
+  "04d": "./images/clouds.svg",
+  "04n": "./images/clouds.svg",
+  "09d": "./images/rain.svg",
+  "09n": "./images/rain.svg",
+  "10d": "./images/rain-2.svg",
+  "10n": "./images/rain-2.svg",
+  "11d": "./images/rain-2.svg",
+  "11n": "./images/rain-2.svg",
+  "13d": "./images/rain.svg",
+  "13n": "./images/rain.svg",
+  "50d": "./images/clouds.svg",
+  "50n": "./images/clouds.svg"
+};
+
+
+function atualizarPrevisaoSemanal(dados) {
+  atualizarPrevisaoPorHora(dados); // <-- adiciona a parte por hora
+
+  const diasSemana = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+  const forecast = {};
+  
+  dados.list.forEach((item) => {
+    const data = new Date(item.dt_txt);
+    const dia = data.getDay();
+    const hora = data.getHours();
+    if (hora === 12 && !forecast[dia]) {
+      forecast[dia] = {
+        temp_max: Math.round(item.main.temp_max),
+        temp_min: Math.round(item.main.temp_min),
+        icon: item.weather[0].icon,
+        descricao: item.weather[0].description
+      };
+    }
+  });
+
+  const container = document.querySelector(".weekly-forecast-container");
+  container.innerHTML = "";
+
+  Object.keys(forecast).forEach((dia) => {
+    const info = forecast[dia];
+    const icone = iconesClima[info.icon] || "./images/clouds.svg";
+    container.innerHTML += `
+      <div class="day-weather-item">
+        <p>${diasSemana[dia]}</p>
+        <img src="${icone}" alt="${info.descricao}" />
+        <div>
+          <p>${info.temp_max}º</p>
+          <p>${info.temp_min}º</p>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function atualizarPrevisaoPorHora(dados) {
+  const container = document.querySelector(".hourly-forecast-container");
+  container.innerHTML = "";
+
+  const previsoes = dados.list.slice(0, 6); // próximas 6 previsões (3h em 3h)
+
+  previsoes.forEach(item => {
+    const hora = new Date(item.dt_txt).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    const icone = iconesClima[item.weather[0].icon] || "./images/clouds.svg";
+    const temp = Math.round(item.main.temp);
+
+    container.innerHTML += `
+      <div class="hour-weather-item">
+        <p>${hora}</p>
+        <img src="${icone}" alt="${item.weather[0].description}" />
+        <p>${temp}º</p>
+      </div>
+    `;
+  });
+}
+
+document.getElementById('input-cidade').addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    buscarClima();
+  }
+});
+
+async function buscarIndiceUV(lat, lon) {
+  const resposta = await fetch(
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${apiKey}&units=metric`
+  );
+
+  const dados = await resposta.json();
+
+  if (dados.current && dados.current.uvi !== undefined) {
+    document.getElementById('uv').innerText = dados.current.uvi;
+  } else {
+    document.getElementById('uv').innerText = "--";
+  }
+}
+
+</script>
+  </body>
+</html>
