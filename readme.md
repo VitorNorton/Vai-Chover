@@ -6,7 +6,6 @@ Um site moderno e responsivo para consultar o clima em tempo real, com previsão
 
 <p align="center">
     <img src="https://img.shields.io/badge/HTML5-000?style=for-the-badge&logo=html5">
-    <img src="https://img.shields.io/badge/JavaScript-000?style=for-the-badge&logo=javascript">
     <img src="https://img.shields.io/badge/CSS3-000?style=for-the-badge&logo=css&logoColor=264CE4">
     <img src="https://img.shields.io/badge/API Open WeatherMap-000?style=for-the-badge&logo=api&logoColor=264CE4" >
 </p>
