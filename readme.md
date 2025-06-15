@@ -32,6 +32,3 @@ Você pode visualizar o protótipo completo do projeto
 
 👉 [Acessar projeto no Figma](https://www.figma.com/design/jQYylIyOTDuRqHLpQtK9Rj/VaiChover-?node-id=0-1&p=f)
 
-
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/jQYylIyOTDuRqHLpQtK9Rj/VaiChover-?node-id=0-1&embed-host=share" allowfullscreen></iframe>
-
