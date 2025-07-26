@@ -26,12 +26,6 @@ Um site moderno e responsivo para consultar o clima em tempo real, com previsão
 
 ✅ Responsivo (funciona em desktop e mobile)
 
-### <img align="center" src="https://blog.greggant.com/images/posts/2019-04-25-figma/Figma.png" height=40 > Design no Figma
-
-Você pode visualizar o protótipo completo do projeto
-
-👉 [Acessar projeto no Figma](https://www.figma.com/design/jQYylIyOTDuRqHLpQtK9Rj/VaiChover-?node-id=0-1&p=f)
-
 ### <img align="center" src="https://files.softicons.com/download/social-media-icons/simple-icons-by-dan-leech/png/256x256/behance.png" height=40 > Behance
 
 Você pode visualizar a apresentação do projeto
